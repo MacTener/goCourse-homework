@@ -10,7 +10,6 @@ func main() {
 
 	var startEur float64 = 50.0
 	rub := startEur * eurToRub
-
 	fmt.Print(rub)
 
 }
