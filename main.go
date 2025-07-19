@@ -21,22 +21,17 @@ func main() {
 			continue
 		}
 
-		// fmt.Println("=======НАЧАЛЬНАЯ ВАЛЮТА:")
-		// fmt.Println("userAnswer:", userAnswer)
-
 		userNumber, err := startNumber()
 		if err != nil {
 			fmt.Println("Введено неверное число!")
 			continue
 		}
 
-		// fmt.Println("=======ЧИСЛО ДЛЯ КОНВЕНТАРЦИИ:")
-		// fmt.Println("userNumber:", userNumber)
-
 		userEndAnswer, err := endCurrency(userAnswer)
-
-		// fmt.Println("=======НАЧАЛЬНАЯ ВАЛЮТА:")
-		// fmt.Println("userEndAnswer:", userEndAnswer)
+		if err != nil {
+			fmt.Println("Введена невереная валюта!")
+			continue
+		}
 
 		convertedValue := calculate(userNumber, userAnswer, userEndAnswer)
 		fmt.Println("Полученное значение:", convertedValue)
@@ -44,9 +39,6 @@ func main() {
 
 		var userContinue string
 		fmt.Scan(&userContinue)
-
-		// fmt.Println("------ОТВЕТ ПОЛЬЗОВАТЕЛЯ")
-		// fmt.Println("userContinue:", userContinue)
 
 		if userContinue == "y" || userContinue == "Y" {
 			continue
@@ -93,6 +85,8 @@ func endCurrency(userCurrency string) (string, error) {
 	fmt.Scan(&answer)
 	if answer != "USD" && answer != "EUR" && answer != "RUB" {
 		return "", errors.New("CURRENCY_MISMATCH")
+	} else if answer == userCurrency {
+		return "", errors.New("SAME_CURRENCY")
 	}
 
 	return answer, nil
