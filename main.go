@@ -7,9 +7,20 @@ const usdToRub float64 = 78.52
 const eurToRub float64 = usdToRub / usdToEur
 
 func main() {
+	userAnswer := userImput()
+	fmt.Println("Вы ввели:", userAnswer)
+}
 
-	var startEur float64 = 50.0
-	rub := startEur * eurToRub
-	fmt.Print(rub)
+func userImput() string {
+
+	var answer string
+
+	fmt.Println("Введите данные:")
+	fmt.Scan(&answer)
+
+	return answer
+}
+
+func calculate(num int, num2 float64, num3 float64) {
 
 }
