@@ -108,13 +108,6 @@ func startNumber() (float64, error) {
 
 func calculate(num float64, startCurrency string, endCurrency string) float64 {
 
-	// const usdToEur float64 = 0.86
-	// const usdToRub float64 = 78.52
-	// const eurToRub float64 = usdToRub / usdToEur
-
-	// -> Mult
-	// <- div
-
 	var endValue float64
 
 	switch startCurrency {
