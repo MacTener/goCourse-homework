@@ -21,6 +21,6 @@ func userImput() string {
 	return answer
 }
 
-func calculate(num int, num2 float64, num3 float64) {
+func calculate(num int, currency1 string, currency2 string) {
 
 }
