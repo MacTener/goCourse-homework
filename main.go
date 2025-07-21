@@ -21,7 +21,11 @@ func main() {
 
 		userNums := getUserNums()
 
-		sliceNumbers := stripString(userNums)
+		sliceNumbers, err := stripString(userNums)
+		if err != nil {
+			fmt.Println("Ошибка введеных данных. Повторите ввод")
+			continue
+		}
 
 		answer, err := calculate(sliceNumbers, userInput)
 		if err != nil {
@@ -62,7 +66,7 @@ func getUserNums() string {
 
 }
 
-func stripString(numString string) []int {
+func stripString(numString string) ([]int, error) {
 
 	var sliceNumbers []int
 
@@ -71,14 +75,15 @@ func stripString(numString string) []int {
 
 		value, err := strconv.Atoi(value)
 		if err != nil {
-			fmt.Println("Нельзя походу")
+			fmt.Println("Неккоректные данные")
+			return nil, errors.New("STRING_ARRAY_ERROR")
 		}
 
 		sliceNumbers = append(sliceNumbers, int(value))
 
 	}
 
-	return sliceNumbers
+	return sliceNumbers, nil
 
 }
 
@@ -115,10 +120,12 @@ func calculate(numArray []int, operation string) (int, error) {
 		if lenArray%2 == 0 {
 			medNum := numArray[lenArray/2]
 			return medNum, nil
+		} else {
+			middleNum := lenArray / 2
+			midArifm := (numArray[middleNum] + numArray[middleNum-1]) / 2
+			return midArifm, nil
 		}
-		middleNum := lenArray / 2
-		midArifm := (numArray[middleNum] + numArray[middleNum-1]) / 2
-		return midArifm, nil
+
 	default:
 		return 0, errors.New("MISSING_ERROR")
 	}
