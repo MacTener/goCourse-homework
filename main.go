@@ -117,7 +117,7 @@ func calculate(numArray []int, operation string) (int, error) {
 		sort.Ints(numArray)
 		lenArray := len(numArray)
 
-		if lenArray%2 == 0 {
+		if lenArray%2 != 0 {
 			medNum := numArray[lenArray/2]
 			return medNum, nil
 		} else {
