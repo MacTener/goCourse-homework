@@ -20,5 +20,5 @@ func main() {
 	}
 
 	fmt.Println(binsSlice)
-
+	fmt.Println("Hello")
 }
