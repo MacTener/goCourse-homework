@@ -22,6 +22,7 @@ func SaveBinToJson(bin bins.Bin) error {
 		return err
 	}
 	fmt.Println("Запись успешна.")
+	return nil
 }
 
 func ReadJson() ([]bins.Bin, error) {
@@ -33,7 +34,7 @@ func ReadJson() ([]bins.Bin, error) {
 	var emptyBin []bins.Bin
 	err = json.Unmarshal(jsonFile, &emptyBin)
 	if err != nil {
-		return nil, fmt.Errorf("Ошибкаf преобразования JSON: %w", err)
+		return nil, fmt.Errorf("Ошибка преобразования JSON: %w", err)
 	}
 
 	return emptyBin, nil

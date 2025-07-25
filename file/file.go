@@ -13,8 +13,10 @@ func ReadFile() error {
 	}
 	fmt.Println("Файл:")
 	fmt.Println(string(fileData))
+	return nil
 }
 
 func checkJSON(str string) bool {
+
 	return strings.Contains(str, ".json")
 }
